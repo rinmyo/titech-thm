@@ -2,7 +2,7 @@
 
 #show: project.with(
     authors: ((affiliation: "所属など", name: "氏名氏名氏名"),),
-    lang: "jp",     //"jp" for japnese, "en" for english. thanks page will change perspectively
+    lang: "jp",     //"jp" for japnese, "en" for english. thanks page will be changed perspectively
     title: [タイトルタイトルタイトル\ タイトルタイトルタイトル],
     subtitle: "開催日時、場所、サブタイトル等",
     date: "April 2023",

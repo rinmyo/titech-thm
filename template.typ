@@ -40,7 +40,7 @@
 
         alert(background: image("img/bg_" + data.aspect-ratio + ".jpg"), slide-info, ([
             #v(1fr)
-            #block(inset: 1.65em, below: 1.65em, text(1.65em)[*#data.title*])
+            #block(inset: 1.65em, text(1.65em)[*#data.title*])
 
             #line(length: 91%, stroke: .55pt)
 

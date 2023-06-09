@@ -1,4 +1,4 @@
-#import "theme.typ": *
+#import "template.typ": *
 
 #show: project.with(
     authors: ((affiliation: "所属など", name: "氏名氏名氏名"),),

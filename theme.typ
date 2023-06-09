@@ -38,25 +38,28 @@
         }
 
         alert(background: image("img/bg_" + data.aspect-ratio + ".jpg"), slide-info, ([
-            #text(1.44em)[*#data.title*]
+            #v(1fr)
+            #block(inset: 1.44em, text(1.44em)[*#data.title*])
 
-            #line(length: 25.66cm, stroke: .55pt)
+            #line(length: 91%, stroke: .55pt)
 
             #{
                 set text(size: .8em)
 
                 if data.subtitle != none {
+                    v(1em)
                     text[*#data.subtitle*]
                 }
             }
 
+            #v(1em)
             #grid(
                 columns: (1fr,) * calc.min(data.authors.len(), 3),
                 column-gutter: 1em,
                 row-gutter: 1em,
-                [#data.authors.at(0).dep\ #text(1.28em, data.authors.at(0).name)]
+                [#data.authors.at(0).affiliation\ #text(1.28em, data.authors.at(0).name)]
             )
-            #v(1em)
+            #v(4fr)
         ],))
     }
 
@@ -148,7 +151,7 @@
     show: slides.with(
         authors: authors,
 	    theme: titech-theme(lang: lang),
-        title: [Report about the principle of MMI],
+        title: title,
         subtitle: subtitle,
         date: date,
         handout: handout,

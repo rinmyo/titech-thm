@@ -11,7 +11,7 @@
 
 #let titech-theme(lang) = data => {  
     let scriptsize = 8pt
-    let flag = image.with("img/flag.svg")
+    let flag = image.with("asset/flag.svg")
     let _top_bar = place(top, rect(width: 100%, height: .41cm, fill: color.secondary, stroke: none))
 
     let logical-slide = counter("logical-slide")
@@ -38,7 +38,7 @@
             panic("title slide does not allow any body")
         }
 
-        alert(background: image("img/bg_" + data.aspect-ratio + ".jpg"), slide-info, ([
+        alert(background: image("asset/bg_" + data.aspect-ratio + ".jpg"), slide-info, ([
             #v(1fr)
             #block(inset: 1.65em, text(1.65em)[*#data.title*])
 
@@ -75,7 +75,7 @@
         let body = bodies.at(0, default: content)
 
         alert(
-            background: place(bottom, image("img/bg_thanks_" + data.aspect-ratio + ".jpg")), 
+            background: place(bottom, image("asset/bg_thanks_" + data.aspect-ratio + ".jpg")), 
             slide-info,
             (move(dy: -9%, body),)
         )

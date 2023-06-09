@@ -1,3 +1,5 @@
+#import "typst-slides/slides.typ": *
+
 #let color = (
 	primary: rgb(0, 91, 148),
 	primary_c: rgb(148, 57, 0),
@@ -39,12 +41,12 @@
 
         alert(background: image("img/bg_" + data.aspect-ratio + ".jpg"), slide-info, ([
             #v(1fr)
-            #block(inset: 1.44em, text(1.44em)[*#data.title*])
+            #block(inset: 1.65em, below: 1.65em, text(1.65em)[*#data.title*])
 
             #line(length: 91%, stroke: .55pt)
 
             #{
-                set text(size: .8em)
+                set text(size: .9em)
 
                 if data.subtitle != none {
                     v(1em)
@@ -57,7 +59,7 @@
                 columns: (1fr,) * calc.min(data.authors.len(), 3),
                 column-gutter: 1em,
                 row-gutter: 1em,
-                [#data.authors.at(0).affiliation\ #text(1.28em, data.authors.at(0).name)]
+                [#text(size: .9em, data.authors.at(0).affiliation)\ #text(1.5em, data.authors.at(0).name)]
             )
             #v(4fr)
         ],))
@@ -67,7 +69,7 @@
         if bodies.len() > 1 {
             panic("you cannot input bodies more than 1")
         }
-        set text(1.28em, lang: lang, weight: "bold")
+        set text(1.5em, lang: lang, weight: "bold")
 
         let content = if lang == "jp" [ご清聴ありがとうございました] 
                  else if lang == "en" [Thanks for your listening!]
@@ -76,7 +78,7 @@
         alert(
             background: place(bottom, image("img/bg_thanks_" + data.aspect-ratio + ".jpg")), 
             slide-info,
-            (move(dy: -1.88cm, body),)
+            (move(dy: -9%, body),)
         )
     }
 
@@ -145,7 +147,6 @@
     lang: "jp",
     aspect-ratio: "4-3",
     handout: false,
-    slides,
     body
 ) = {
     show: slides.with(

@@ -9,7 +9,7 @@
 	text_c: rgb(100, 76, 32),
 )
 
-#let titech-theme(lang: "jp") = data => {  
+#let titech-theme(lang) = data => {  
     let scriptsize = 8pt
     let flag = image.with("img/flag.svg")
     let _top_bar = place(top, rect(width: 100%, height: .41cm, fill: color.secondary, stroke: none))
@@ -21,7 +21,6 @@
             panic("default variant of default theme only supports one body per slide")
         }
         let body = bodies.first()
-        set text(lang: lang, font: ("Noto Sans CJK JP", "Noto Sans"))
 
         //background
         if background != none {
@@ -69,7 +68,7 @@
         if bodies.len() > 1 {
             panic("you cannot input bodies more than 1")
         }
-        set text(1.5em, lang: lang, weight: "bold")
+        set text(1.5em, weight: "bold")
 
         let content = if lang == "jp" [ご清聴ありがとうございました] 
                  else if lang == "en" [Thanks for your listening!]
@@ -83,7 +82,7 @@
     }
 
     let default(slide-info, bodies) = {
-        set text(color.text, lang: lang, font: ("Noto Sans CJK JP", "Noto Sans"))
+        set text(color.text)
         set strong(delta: 100)
 
         if bodies.len() != 1 {
@@ -116,7 +115,7 @@
     }
 
     let wake-up(slide-info, bodies) = {
-        set text(color.text, lang: lang, font: ("Noto Sans CJK JP", "Noto Sans"))
+        set text(color.text)
 
         if bodies.len() != 1 {
             panic("wake up variant of default theme only supports one body per slide")
@@ -151,7 +150,7 @@
 ) = {
     show: slides.with(
         authors: authors,
-	    theme: titech-theme(lang: lang),
+	    theme: titech-theme(lang),
         title: title,
         subtitle: subtitle,
         date: date,
@@ -159,7 +158,14 @@
         aspect-ratio: aspect-ratio,
     )
 
-    set text(if aspect-ratio == "16-9" {20pt} else {24pt})
+    // change here with your font size for main text
+    let main_size = if aspect-ratio == "16-9" {20pt} else {24pt}
+
+    set text(
+        main_size, 
+        font: ("Noto Sans CJK JP", "Noto Sans"),
+        lang: lang,
+    )
     show link: set text(color.text_c)
     show raw: set text(font: "JuliaMono")
 

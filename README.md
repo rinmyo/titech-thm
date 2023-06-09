@@ -6,5 +6,8 @@ This project is on development and aim to mimic the [official version(available 
 
 Any issue and PRs are welcome.
 
+## font
+the default font is "Noto Sans CJK JP" and "Noto Sans". Please install them in advance or replace them as your preference
+
 ## COPYRIGHT
 - 東工大のシンボルマークは商標登録済です。

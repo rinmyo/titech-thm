@@ -168,6 +168,7 @@
     )
     show link: set text(color.text_c)
     show raw: set text(font: "JuliaMono")
+    show figure: set text(0.7em)
 
     body
 }
